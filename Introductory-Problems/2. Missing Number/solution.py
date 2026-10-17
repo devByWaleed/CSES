@@ -5,15 +5,24 @@ import sys
 
 
 def solve():
-    # Read input from stdin
-    input = sys.stdin.read
-    data = input().split()
-    if not data:
+    input_data = sys.stdin.read().split()
+    if not input_data:
         return
-    
-    n = int(data[0])
-    # TODO: write logic here
+
+    n = int(input_data[0])
+    # TODO: Write your solution logic here
+
+    # Sum of all numbers in range(1, n) includive
+    range_sum = n * (n + 1) // 2
+
+    # List of all numbers in int form
+    list_int = [int(input_data[i]) for i in range(1,len(input_data))]
+
+    # Subtraction gives the missing number
+    print(range_sum - sum(list_int))
 
 
 if __name__ == '__main__':
     solve()
+
+# python run_tests.py "Introductory-Problems/2. Missing Number"

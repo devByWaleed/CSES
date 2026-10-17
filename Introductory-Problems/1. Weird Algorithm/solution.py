@@ -1,10 +1,16 @@
 # CSES Problem: Weird Algorithm
 # URL: https://cses.fi/problemset/task/1068
 
-# def solve(n):
+import sys
+
+
 def solve():
-    # Read the single integer from standard input
-    n = int(input())
+    input_data = sys.stdin.read().split()
+    if not input_data:
+        return
+
+    n = int(input_data[0])
+    # TODO: Write your solution logic here
     # Create a copy
     num = n
 
@@ -20,9 +26,7 @@ def solve():
         print(num, end=" ")
 
 
-if __name__ == "__main__":
-  solve()
+if __name__ == '__main__':
+    solve()
 
-# solve(3)      # 3 10 5 16 8 4 2 1
-# solve(13)      # 13 40 20 10 5 16 8 4 2 1
-# solve(7)      # 13 40 20 10 5 16 8 4 2 1
+# python run_tests.py "Introductory-Problems/1. Weird Algorithm"
