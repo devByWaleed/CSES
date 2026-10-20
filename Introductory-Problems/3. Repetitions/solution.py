@@ -36,4 +36,7 @@ def solve():
 if __name__ == '__main__':
     solve()
 
+# T.C: O(N)     --> Loop on N size string
+# S.C: O(1)     --> Variables storing int value
+
 # python run_tests.py "Introductory-Problems/3. Repetitions"

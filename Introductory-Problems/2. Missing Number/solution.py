@@ -25,4 +25,7 @@ def solve():
 if __name__ == '__main__':
     solve()
 
+# T.C: O(N)     --> Creating + SUM of N size array
+# S.C: O(N)     --> Array of size N used
+
 # python run_tests.py "Introductory-Problems/2. Missing Number"

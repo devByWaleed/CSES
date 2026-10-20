@@ -29,4 +29,7 @@ def solve():
 if __name__ == '__main__':
     solve()
 
+# T.C: O(N)     --> Loop till constant no. of steps
+# S.C: O(1)     --> Variables storing int value
+
 # python run_tests.py "Introductory-Problems/1. Weird Algorithm"
