@@ -68,6 +68,8 @@ def fetch_cses_problem(url, category_folder, zip_path=None):
             with zipfile.ZipFile(zip_path, "r") as zip_ref:
                 zip_ref.extractall(tests_folder)
             print(f"✅ Extracted test cases into: {tests_folder}")
+        except PermissionError:
+            print(f"❌ Permission denied: '{zip_path}' is currently locked or in use by another program.")
         except Exception as e:
             print(f"❌ Failed to extract zip file: {e}")
     elif zip_path:
