@@ -52,7 +52,7 @@ def solve():
 if __name__ == '__main__':
     solve()
 
-# T.C: O(N)
-# S.C: O(N)
+# T.C: O(N)     --> Looping through N elements
+# S.C: O(N)     --> Using set data structure for ~ N elements
 
 # python run_tests.py "Introductory-Problems/8. Two Sets"
