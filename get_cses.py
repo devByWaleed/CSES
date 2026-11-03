@@ -61,6 +61,12 @@ def fetch_cses_problem(url, category_folder, zip_path=None):
             f.write("if __name__ == '__main__':\n")
             f.write("    solve()\n")
 
+    # If no zip_path was passed as an argument, look for 'tests.zip' in the root folder
+    if not zip_path:
+        default_root_zip = "tests.zip"
+        if os.path.exists(default_root_zip):
+            zip_path = default_root_zip
+
     if zip_path and os.path.exists(zip_path):
         tests_folder = os.path.join(folder_name, "tests")
         os.makedirs(tests_folder, exist_ok=True)
@@ -68,12 +74,17 @@ def fetch_cses_problem(url, category_folder, zip_path=None):
             with zipfile.ZipFile(zip_path, "r") as zip_ref:
                 zip_ref.extractall(tests_folder)
             print(f"✅ Extracted test cases into: {tests_folder}")
+            
+            # Automatically delete the zip file after successful extraction
+            os.remove(zip_path)
+            print(f"🗑️ Deleted root zip file: '{zip_path}'")
+            
         except PermissionError:
             print(f"❌ Permission denied: '{zip_path}' is currently locked or in use by another program.")
         except Exception as e:
-            print(f"❌ Failed to extract zip file: {e}")
+            print(f"❌ Failed to extract or delete zip file: {e}")
     elif zip_path:
-        print(f"⚠️ Warning: Provided zip file path '{zip_path}' does not exist.")
+        print(f"⚠️ Warning: Provided or default zip file path '{zip_path}' does not exist.")
 
     print(f"✅ Successfully generated files for: '{title}'")
     print(f"📁 Path: {folder_name}")
@@ -91,4 +102,4 @@ if __name__ == "__main__":
 
 
 # Just change "Link" and "Folder Name" as per need
-# python get_cses.py https://cses.fi/problemset/task/1083 Introductory-Problems tests.zip
+# python get_cses.py https://cses.fi/problemset/task/1083 Introductory-Problems
